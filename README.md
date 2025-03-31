@@ -413,7 +413,11 @@ webchat
 
 
 # 教程详细版
+视频版地址：
+链接: https://pan.baidu.com/s/1GTNBCrZ5hBw4w2CYj2jMeA?pwd=73c8 提取码: 73c8
+
 vscode
+
 vscode插件安装：chinese、remote、python、pylance、python debugger、Python Environment Manager
 
 ![alt text](image-12.png)
@@ -603,6 +607,7 @@ swanlab watch swanlog --port 5092
 - 训练：在per_device_train_batch_size=1的情况下，32B显存空余如下，如果调72B需要乘2，72B勉强够用。根据显存空余，可调大per_device_train_batch_size=2, 4, 6, 8不等。
 - 训练：6组数据（每组2-3轮对话），一个epoch需要：50s-80s。
 - 推理：差点爆显存
+- 评估：直接爆显存
 
 ![alt text](image-38.png)
 
@@ -679,4 +684,6 @@ huggingface-cli download --resume-download Qwen/Qwen2.5-VL-7B-Instruct --local-d
 ```
 
 ![alt text](image-49.png)
+
+
 
