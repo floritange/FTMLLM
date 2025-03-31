@@ -1,0 +1,67 @@
+### model
+model_name_or_path: /data/huggingface/hub/models--Qwen--Qwen2.5-VL-3B-Instruct/snapshots/319ccfdc6cd974fab8373cb598dfe77ad93dedd3
+image_max_pixels: 262144
+video_max_pixels: 16384
+trust_remote_code: true
+
+### method
+stage: dpo
+do_train: true
+finetuning_type: lora
+lora_rank: 8
+lora_alpha: 16
+lora_dropout: 0
+lora_target: all
+pref_beta: 0.1
+pref_ftx: 0
+pref_loss: sigmoid  # choices: [sigmoid (dpo), orpo, simpo]
+flash_attn: auto
+
+### dataset
+dataset: custom_data_vl
+dataset_dir: /home/tangou/tangou1/FTMLLM/LLaMA-Factory/data # dataset_info所在文件夹
+template: qwen2_vl
+cutoff_len: 2048
+max_samples: 1000
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### output
+output_dir: /home/tangou/tangou1/1results/qwen2.5_vl/lora/dpo_dev
+logging_steps: 10
+save_steps: 100
+warmup_steps: 0
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+
+### train
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 8
+max_grad_norm: 1.0
+learning_rate: 5.0e-6
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 180000000
+resume_from_checkpoint: null
+include_num_input_tokens_seen: True
+optim: adamw_torch
+
+### eval
+# val_size: 0.1
+# per_device_eval_batch_size: 1
+# eval_strategy: steps
+# eval_steps: 500
+
+### SwanLab 配置
+use_swanlab: true
+swanlab_project: llamafactory
+swanlab_run_name: qwen2.5_vl
+swanlab_mode: cloud
+swanlab_api_key: iiuay9Y1iDp0wrrYDX4cW
+
+# deepspeed
+deepspeed: /home/tangou/tangou1/cache/ds_z3_config.json
