@@ -1,3 +1,9 @@
+---
+html:
+    embed_local_images: true # 这个值设置是否将image转换成base64字符串
+    toc: true # 这个值设置侧边栏
+---
+
 # 教程详细版
 视频版地址：
 链接: https://pan.baidu.com/s/1GTNBCrZ5hBw4w2CYj2jMeA?pwd=73c8 提取码: 73c8
