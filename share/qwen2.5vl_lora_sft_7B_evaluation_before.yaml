@@ -1,0 +1,35 @@
+### model
+model_name_or_path: /data/huggingface/hub/models--Qwen--Qwen2.5-VL-7B-Instruct/snapshots/68156fd997cdc9f710620466735af49862bb81f6   #配置model路径，回到最开始3e那个目录去copy路径
+trust_remote_code: true
+do_predict: true
+predict_with_generate: true
+flash_attn: auto
+
+
+stage: sft
+template: qwen2_vl
+
+
+### method
+finetuning_type: lora
+preprocessing_num_workers: 16
+
+### quantization
+# quantization_method: bitsandbytes
+# quantization_bit: 4
+# double_quantization: true
+
+
+### dataset
+eval_dataset: data_part2  # dataset_info.json配置的数据集名字
+dataset_dir: data  # dataset_info.json所在文件夹
+cutoff_len: 2048
+max_samples: 100000
+per_device_eval_batch_size: 4
+
+
+### output
+output_dir: results/evaluation/qwen2.5_vl_lora_sft_7B_before
+max_new_tokens: 512
+top_p: 0.7
+temperature: 0.95

@@ -12,5 +12,33 @@
       "user_tag": "user",
       "assistant_tag": "assistant"
     }
+  },
+  "data_part1": {
+      "file_name": "data_part1_60.json",
+      "formatting": "sharegpt",
+      "columns": {
+        "messages": "messages",
+        "images": "images"
+      },
+      "tags": {
+        "role_tag": "role",
+        "content_tag": "content",
+        "user_tag": "user",
+        "assistant_tag": "assistant"
+      }
+  },
+  "data_part2": {
+      "file_name": "data_part2_30.json",
+      "formatting": "sharegpt",
+      "columns": {
+        "messages": "messages",
+        "images": "images"
+      },
+      "tags": {
+        "role_tag": "role",
+        "content_tag": "content",
+        "user_tag": "user",
+        "assistant_tag": "assistant"
+      }
   }
 }

@@ -26,6 +26,6 @@ for i in range(len(df)):
     data.append(data_item)
 
 # 保存为 Json
-with open('data_vl.json', 'w', encoding='utf-8') as f:
+with open('all_data.json', 'w', encoding='utf-8') as f:
     json.dump(data, f, ensure_ascii=False, indent=2)
     
