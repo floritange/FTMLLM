@@ -1,6 +1,8 @@
-Model,Configuration,Training Info,BLEU-4,ROUGE-1,ROUGE-2,ROUGE-L,Runtime,Samples/sec
-Qwen2.5-VL-7B,Before fine-tuning,batch_size: 4 8×26GB GPU,8.04,18.09,4.38,11.16,8.40s,3.57
-Qwen2.5-VL-7B,After fine-tuning,batch_size: 8 8×28-35GB GPU 30s/epoch,8.09,18.75,4.85,11.53,12.62s,2.38
-Qwen2.5-VL-32B,Before fine-tuning (8-bit),batch_size: 2 8×38GB GPU,4.05,11.83,2.67,5.87,236.45s,0.13
-Qwen2.5-VL-32B,Before fine-tuning (4-bit),batch_size: 2 8×24GB GPU,3.98,11.71,2.02,5.53,193.30s,0.16
-Qwen2.5-VL-32B,After fine-tuning (4-bit),batch_size: 6 8×40GB GPU 120s/epoch,4.28,12.36,2.24,6.09,220.05s,0.14
+Model,Phase,Configuration,GPU Memory,Batch Size,Speed,BLEU-4,ROUGE-1,ROUGE-2,ROUGE-L,Runtime,Samples/sec
+Qwen2.5-VL-7B,Training,Fine-tuning,8×28-35GB,8,30s/epoch,,,,,, 
+Qwen2.5-VL-7B,Evaluation,Before fine-tuning,8×26GB,4,,8.043468749999999,18.08796875,4.3805499999999995,11.1585375,8.4024,3.57
+Qwen2.5-VL-7B,Evaluation,After fine-tuning,8×26GB,4,,8.093843750000001,18.75373125,4.851125,11.525771875,12.6196,2.377
+Qwen2.5-VL-32B,Training,Fine-tuning,8×40GB,6,120s/epoch,,,,,, 
+Qwen2.5-VL-32B,Evaluation,Before fine-tuning (8-bit),8×38GB,2,,4.050425000000001,11.830003125,2.671021875,5.869315625,236.453,0.127
+Qwen2.5-VL-32B,Evaluation,Before fine-tuning (4-bit),8×24GB,2,,3.9843874999999995,11.7092875,2.0235125,5.531334375,193.3049,0.155
+Qwen2.5-VL-32B,Evaluation,After fine-tuning (4-bit),8×24GB,2,,4.27783125,12.3642375,2.23608125,6.093603125,220.0491,0.136
