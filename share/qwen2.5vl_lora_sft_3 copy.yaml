@@ -1,0 +1,55 @@
+### model
+model_name_or_path: /data/huggingface/hub/models--Qwen--Qwen2.5-VL-32B-Instruct/snapshots/6bcf1c9155874e6961bcf82792681b4f4421d2f7   #配置model路径，回到最开始3e那个目录去copy路径
+image_max_pixels: 262144
+video_max_pixels: 16384
+trust_remote_code: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 8
+lora_target: all
+
+### dataset
+dataset: mllm_demo  # dataset_info.json配置的数据集名字
+dataset_dir: LLaMA-Factory/data  # dataset_info.json所在文件夹
+template: qwen2_vl
+cutoff_len: 2048
+max_samples: 1000
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### output
+output_dir: results/qwen2.5_vl_lora_sft_dev #数据结果目录
+logging_steps: 10
+save_steps: 500
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+
+### train
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 8
+learning_rate: 1.0e-4
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 180000000
+resume_from_checkpoint: null
+
+### eval
+# val_size: 0.1
+# per_device_eval_batch_size: 1
+# eval_strategy: steps
+# eval_steps: 500
+
+### SwanLab 配置
+use_swanlab: true
+swanlab_project: llamafactory
+swanlab_mode: local
+
+# deepspeed
+deepspeed: LLaMA-Factory/cache/ds_z3_config.json

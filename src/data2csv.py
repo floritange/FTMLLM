@@ -3,7 +3,7 @@ from modelscope.msdatasets import MsDataset
 import os
 import pandas as pd
 
-MAX_DATA_NUMBER = 50
+MAX_DATA_NUMBER = 100
 
 # 检查目录是否已存在
 if not os.path.exists('coco_2014_caption'):
@@ -28,7 +28,8 @@ if not os.path.exists('coco_2014_caption'):
         image = item['image']
         
         # 保存图片并记录路径
-        image_path = os.path.abspath(f'coco_2014_caption/{image_id}.jpg')
+        # image_path = os.path.abspath(f'coco_2014_caption/{image_id}.jpg')
+        image_path = f'coco_2014_caption/{image_id}.jpg'
         image.save(image_path)
         
         # 将路径和描述添加到列表中

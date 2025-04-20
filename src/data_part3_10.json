@@ -1,0 +1,152 @@
+[
+  {
+    "messages": [
+      {
+        "content": "<image>What is in this picture?",
+        "role": "user"
+      },
+      {
+        "content": "a plate with a sandwich and lettuce on it ",
+        "role": "assistant"
+      }
+    ],
+    "images": [
+      "coco_2014_caption/78909.jpg"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "content": "<image>What is in this picture?",
+        "role": "user"
+      },
+      {
+        "content": "A brown bathroom with a walk in shower",
+        "role": "assistant"
+      }
+    ],
+    "images": [
+      "coco_2014_caption/54323.jpg"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "content": "<image>What is in this picture?",
+        "role": "user"
+      },
+      {
+        "content": "A red double decker bus on the street.",
+        "role": "assistant"
+      }
+    ],
+    "images": [
+      "coco_2014_caption/32458.jpg"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "content": "<image>What is in this picture?",
+        "role": "user"
+      },
+      {
+        "content": "Bread, soup, and fruit are pictured together on plates. ",
+        "role": "assistant"
+      }
+    ],
+    "images": [
+      "coco_2014_caption/156943.jpg"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "content": "<image>What is in this picture?",
+        "role": "user"
+      },
+      {
+        "content": "Three people sit on a couch, the man in the middle holds a frisbee.",
+        "role": "assistant"
+      }
+    ],
+    "images": [
+      "coco_2014_caption/86560.jpg"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "content": "<image>What is in this picture?",
+        "role": "user"
+      },
+      {
+        "content": "A large sandwich with coleslaw french-fries and vegetables.",
+        "role": "assistant"
+      }
+    ],
+    "images": [
+      "coco_2014_caption/560748.jpg"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "content": "<image>What is in this picture?",
+        "role": "user"
+      },
+      {
+        "content": "A lady is holding a super cheesy meal.",
+        "role": "assistant"
+      }
+    ],
+    "images": [
+      "coco_2014_caption/550449.jpg"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "content": "<image>What is in this picture?",
+        "role": "user"
+      },
+      {
+        "content": "A group of friend laying on top of a bed.",
+        "role": "assistant"
+      }
+    ],
+    "images": [
+      "coco_2014_caption/426128.jpg"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "content": "<image>What is in this picture?",
+        "role": "user"
+      },
+      {
+        "content": "A couple of people carrying surfboards next to a ocean.",
+        "role": "assistant"
+      }
+    ],
+    "images": [
+      "coco_2014_caption/95774.jpg"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "content": "<image>What is in this picture?",
+        "role": "user"
+      },
+      {
+        "content": "A all white dog playing with a Frisbee on the ground. ",
+        "role": "assistant"
+      }
+    ],
+    "images": [
+      "coco_2014_caption/137635.jpg"
+    ]
+  }
+]
