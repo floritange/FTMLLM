@@ -344,6 +344,29 @@ llamafactory-cli train \
     --swanlab_mode cloud
 ```
 
+evaluation
+```bash
+llamafactory-cli train \
+    --stage sft \
+    --model_name_or_path /data/huggingface/hub/models--Qwen--Qwen2.5-VL-3B-Instruct/snapshots/319ccfdc6cd974fab8373cb598dfe77ad93dedd3 \
+    --preprocessing_num_workers 16 \
+    --finetuning_type lora \
+    --quantization_method bitsandbytes \
+    --template qwen2_vl \
+    --flash_attn auto \
+    --dataset_dir data \
+    --eval_dataset alpaca_en_demo \
+    --cutoff_len 1024 \
+    --max_samples 100000 \
+    --per_device_eval_batch_size 2 \
+    --predict_with_generate True \
+    --max_new_tokens 512 \
+    --top_p 0.7 \
+    --temperature 0.95 \
+    --output_dir saves/Qwen2.5-VL-3B-Instruct/lora/eval_2025-04-21-00-59-20 \
+    --trust_remote_code True \
+    --do_predict True 
+```
 
 
 
@@ -671,8 +694,6 @@ NCCL_P2P_LEVEL=NVL HUGGINGFACE_HUB_CACHE="/data/huggingface/hub" FORCE_TORCHRUN=
 ![alt text](image-47.png)
 
 
-
-
 ### 额外
 webui运行
 
@@ -702,5 +723,158 @@ huggingface-cli download --resume-download Qwen/Qwen2.5-VL-7B-Instruct --local-d
 
 ![alt text](image-49.png)
 
+### export/merge model，合并然后评估（显存爆，和上面评估情况一样）
+```bash
+llamafactory-cli export qwen2.5vl_lora_sft_3_export.yaml
+```
+![1745168057142](image/README_tg/1745168057142.png)
+
+导出完成
+
+![1745168755998](image/README_tg/1745168755998.png)
+
+```bash
+ollama create qwen2_5_vl_custom -f /home/tangou/tangou2/results/export/qwen2.5_vl_lora_sft_dev/Modelfile
+ollama run qwen2_5_vl_custom
+```
+
+评估
+
+```bash
+source /data/tools/setproxy.sh
+conda activate tg10
+NCCL_P2P_LEVEL=NVL HUGGINGFACE_HUB_CACHE="/data/huggingface/hub" FORCE_TORCHRUN=1 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 llamafactory-cli train qwen2.5vl_lora_sft_3_evaluation_no_lora.yaml
+```
+
+爆显存
+
+![1745169235780](image/README_tg/1745169235780.png)
 
 
+### 量化评估
+32B模型微调后，8bit量化爆显存，8卡每张卡占40G左右，4bit量化每张卡占20G左右，如下结果
+
+修改qwen2.5vl_lora_sft_3_evaluation.yaml的量化，bit，为4和8，如果不需要就把其全部注释
+```bash
+source /data/tools/setproxy.sh
+conda activate tg10
+NCCL_P2P_LEVEL=NVL HUGGINGFACE_HUB_CACHE="/data/huggingface/hub" FORCE_TORCHRUN=1 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 llamafactory-cli train qwen2.5vl_lora_sft_3_evaluation.yaml
+```
+![1745169986012](image/README_tg/1745169986012.png)
+
+![1745169707648](image/README_tg/1745169707648.png)
+
+4bit评估结果
+![1745170121915](image/README_tg/1745170121915.png)
+
+
+
+### 测评，32B-4bit量化，7B全量。
+数据集coco_2014_caption，部分
+
+60，30，10
+
+10 epoch
+
+![1745171465045](image/README_tg/1745171465045.png)
+
+#### 7B效果
+```bash
+conda activate tg10
+# 7B，微调，per_device_train_batch_size: 8, 8卡每张显存占用 28-35G, 1 epoch/30s
+NCCL_P2P_LEVEL=NVL HUGGINGFACE_HUB_CACHE="/data/huggingface/hub" FORCE_TORCHRUN=1 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 llamafactory-cli train qwen2.5vl_lora_sft_7B_train.yaml
+# 7B微调前，评估，per_device_train_batch_size: 4, 8卡每张显存占用 26G
+NCCL_P2P_LEVEL=NVL HUGGINGFACE_HUB_CACHE="/data/huggingface/hub" FORCE_TORCHRUN=1 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 llamafactory-cli train qwen2.5vl_lora_sft_7B_evaluation_before.yaml
+# 7B微调后，评估，per_device_train_batch_size: 4, 8卡每张显存占用 26G
+NCCL_P2P_LEVEL=NVL HUGGINGFACE_HUB_CACHE="/data/huggingface/hub" FORCE_TORCHRUN=1 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 llamafactory-cli train qwen2.5vl_lora_sft_7B_evaluation_after.yaml
+```
+
+7B微调loss（收敛不明显）
+
+![1745172260168](image/README_tg/1745172260168.png)
+
+结果
+```json
+// 7B微调前
+{
+    "predict_bleu-4": 8.043468749999999,
+    "predict_model_preparation_time": 0.0075,
+    "predict_rouge-1": 18.08796875,
+    "predict_rouge-2": 4.3805499999999995,
+    "predict_rouge-l": 11.1585375,
+    "predict_runtime": 8.4024,
+    "predict_samples_per_second": 3.57,
+    "predict_steps_per_second": 0.119
+}
+// 7B微调后
+{
+    "predict_bleu-4": 8.093843750000001,
+    "predict_model_preparation_time": 0.0101,
+    "predict_rouge-1": 18.75373125,
+    "predict_rouge-2": 4.851125,
+    "predict_rouge-l": 11.525771875,
+    "predict_runtime": 12.6196,
+    "predict_samples_per_second": 2.377,
+    "predict_steps_per_second": 0.079
+}
+```
+
+#### 32B效果
+
+```bash
+conda activate tg10
+# 32B，微调，per_device_train_batch_size: 6, 8卡每张显存占用 40G, 1 epoch/120s
+NCCL_P2P_LEVEL=NVL HUGGINGFACE_HUB_CACHE="/data/huggingface/hub" FORCE_TORCHRUN=1 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 llamafactory-cli train qwen2.5vl_lora_sft_32B_train.yaml
+
+# 32B微调前，评估，8bit量化，per_device_train_batch_size: 2, 8卡每张显存占用 38G
+NCCL_P2P_LEVEL=NVL HUGGINGFACE_HUB_CACHE="/data/huggingface/hub" FORCE_TORCHRUN=1 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 llamafactory-cli train qwen2.5vl_lora_sft_32B_evaluation_before_8bit.yaml
+# 32B微调前，评估，4bit量化，per_device_train_batch_size: 2, 8卡每张显存占用 24G
+NCCL_P2P_LEVEL=NVL HUGGINGFACE_HUB_CACHE="/data/huggingface/hub" FORCE_TORCHRUN=1 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 llamafactory-cli train qwen2.5vl_lora_sft_32B_evaluation_before_4bit.yaml
+
+# 32B微调后，评估，8bit量化，爆显存
+NCCL_P2P_LEVEL=NVL HUGGINGFACE_HUB_CACHE="/data/huggingface/hub" FORCE_TORCHRUN=1 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 llamafactory-cli train qwen2.5vl_lora_sft_32B_evaluation_after_8bit.yaml
+# 32B微调后，评估，4bit量化，per_device_train_batch_size: 2, 8卡每张显存占用 24G
+NCCL_P2P_LEVEL=NVL HUGGINGFACE_HUB_CACHE="/data/huggingface/hub" FORCE_TORCHRUN=1 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 llamafactory-cli train qwen2.5vl_lora_sft_32B_evaluation_after_4bit.yaml
+```
+
+32B微调loss（收敛不明显）
+
+![1745174712804](image/README_tg/1745174712804.png)
+
+结果
+```json
+// 32B微调前，8bit
+{
+    "predict_bleu-4": 4.050425000000001,
+    "predict_model_preparation_time": 0.0026,
+    "predict_rouge-1": 11.830003125,
+    "predict_rouge-2": 2.671021875,
+    "predict_rouge-l": 5.869315625,
+    "predict_runtime": 236.453,
+    "predict_samples_per_second": 0.127,
+    "predict_steps_per_second": 0.008
+}
+// 32B微调前，4bit
+{
+    "predict_bleu-4": 3.9843874999999995,
+    "predict_model_preparation_time": 0.0026,
+    "predict_rouge-1": 11.7092875,
+    "predict_rouge-2": 2.0235125,
+    "predict_rouge-l": 5.531334375,
+    "predict_runtime": 193.3049,
+    "predict_samples_per_second": 0.155,
+    "predict_steps_per_second": 0.01
+}
+
+// 32B微调后，4bit
+{
+    "predict_bleu-4": 4.27783125,
+    "predict_model_preparation_time": 0.0129,
+    "predict_rouge-1": 12.3642375,
+    "predict_rouge-2": 2.23608125,
+    "predict_rouge-l": 6.093603125,
+    "predict_runtime": 220.0491,
+    "predict_samples_per_second": 0.136,
+    "predict_steps_per_second": 0.009
+}
+```

@@ -1,0 +1,6 @@
+Model,Configuration,Training Info,BLEU-4,ROUGE-1,ROUGE-2,ROUGE-L,Runtime,Samples/sec
+Qwen2.5-VL-7B,Before fine-tuning,batch_size: 4 8×26GB GPU,8.04,18.09,4.38,11.16,8.40s,3.57
+Qwen2.5-VL-7B,After fine-tuning,batch_size: 8 8×28-35GB GPU 30s/epoch,8.09,18.75,4.85,11.53,12.62s,2.38
+Qwen2.5-VL-32B,Before fine-tuning (8-bit),batch_size: 2 8×38GB GPU,4.05,11.83,2.67,5.87,236.45s,0.13
+Qwen2.5-VL-32B,Before fine-tuning (4-bit),batch_size: 2 8×24GB GPU,3.98,11.71,2.02,5.53,193.30s,0.16
+Qwen2.5-VL-32B,After fine-tuning (4-bit),batch_size: 6 8×40GB GPU 120s/epoch,4.28,12.36,2.24,6.09,220.05s,0.14
