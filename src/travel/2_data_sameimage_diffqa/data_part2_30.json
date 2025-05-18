@@ -1,0 +1,152 @@
+[
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>如何联系百怡咖啡沙面店？"
+      },
+      {
+        "role": "assistant",
+        "content": "您可以通过拨打电话020-81215052联系百怡咖啡沙面店。它们位于荔湾区沙面大街46号首层，欢迎您的光临。"
+      }
+    ],
+    "images": [
+      "images/030d76e031414d5303768e3e08bc6d173dc7383325fcb3746d47f3f382b9870e.jpg"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>这张图片中显示的是什么？"
+      },
+      {
+        "role": "assistant",
+        "content": "这张图片显示的是从化荔枝干。它是由鲜荔枝经过加工干制而成，历史悠久，以其肉厚味甜而闻名，是自尝及送礼的佳品。"
+      }
+    ],
+    "images": [
+      "images/046990d64d0dbbc88af3d7673f5a4cd2ab67e91793d1bec7616121af2ba8dbdb.jpg"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>这张图片中显示的是什么地方？"
+      },
+      {
+        "role": "assistant",
+        "content": "这张图片中显示的是圆玄道观，位于广东省新华镇西面的毕村附近。它是广东道教活动的中心，也是游客游览观光的胜地。"
+      }
+    ],
+    "images": [
+      "images/04b6b70f378a01223cde43026cb27e052480e6d816e0406b5f4f997fc3a1420e.jpg"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>广州艺术博物院的建筑有什么特点？"
+      },
+      {
+        "role": "assistant",
+        "content": "广州艺术博物院位于风景秀丽的白云山南麓，紧邻麓湖，占地面积达2万平方米。它是在广州美术馆40年累积的基础上扩展而来的，建筑本身就蕴含着浓厚的文化气息。"
+      }
+    ],
+    "images": [
+      "images/04e018707bc6de43c720fce980e22d58f484e14b1bd295452d2261f217b6305c.jpg"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>中山纪念堂的建筑有什么特别之处？"
+      },
+      {
+        "role": "assistant",
+        "content": "中山纪念堂是一座八角形殿式建筑，设计上运用了巧妙的力学和声学原理。它占地6公顷，建筑面积为1.2万平方米。其中央高耸的八角顶由四面重檐烘托，正面悬挂着孙中山手书的“天下为公”金字匾。"
+      }
+    ],
+    "images": [
+      "images/057c05ed70b3c385110a93059a710490570b9eac2c328347eeb31a037ff0d60d.jpg"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>这张图片里显示的是什么？"
+      },
+      {
+        "role": "assistant",
+        "content": "这张图片展示的是广州新电视塔，又称广州塔，它是中国第一高电视塔，位于广州，是城市新中轴线的重要组成部分。"
+      }
+    ],
+    "images": [
+      "images/0851284f00aca4cdf015e94e40b4ddaf4a35fc06085a5415c0243eb16d4c19c7.jpg"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>北京路书店还有其他产品吗？"
+      },
+      {
+        "role": "assistant",
+        "content": "北京路书店除了图书外，还经营字画、集邮品、音像制品和文化用品。它是广州市新华书店集团有限公司直属的零售书店，提供多样化的文化产品。"
+      }
+    ],
+    "images": [
+      "images/08f61813fbdd54528d35b75360a5e5a095005a8fe059f9af81a7bd84de151b84.jpg"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>这张图片中显示的是什么？"
+      },
+      {
+        "role": "assistant",
+        "content": "这是广州7天酒店（北京路店），它位于北京南路左二巷内，是一家提供经济型住宿的酒店。"
+      }
+    ],
+    "images": [
+      "images/0d35f2619c377f9a0216ae294740e37c341608059f2292a6af76e26e09df1072.jpg"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>南园酒家除了粤菜还有其他菜系吗？"
+      },
+      {
+        "role": "assistant",
+        "content": "南园酒家除了粤菜外，还提供西餐、日式菜、越南菜和泰国菜等多种美食，满足不同口味的顾客需求。"
+      }
+    ],
+    "images": [
+      "images/0f2333f200721ba208733eeeef4ce75c61ccd204661d74dcfa488cb142cf1b7e.jpg"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>仁威庙的开放时间是什么时候？"
+      },
+      {
+        "role": "assistant",
+        "content": "仁威庙免费开放，平时开放时间为8:00-17:00，而在农历初一、十五开放时间为6:30-17:00，方便信徒和游客参观。"
+      }
+    ],
+    "images": [
+      "images/10ad71c2f7fe16e47e7e1fd97a799f08dc95ee39cf2c9b980c3249647631b94c.jpg"
+    ]
+  }
+]

@@ -1,0 +1,115 @@
+{
+  "image_ids": [
+    "images/030d76e031414d5303768e3e08bc6d173dc7383325fcb3746d47f3f382b9870e.jpg",
+    "images/046990d64d0dbbc88af3d7673f5a4cd2ab67e91793d1bec7616121af2ba8dbdb.jpg",
+    "images/04b6b70f378a01223cde43026cb27e052480e6d816e0406b5f4f997fc3a1420e.jpg",
+    "images/04e018707bc6de43c720fce980e22d58f484e14b1bd295452d2261f217b6305c.jpg",
+    "images/057c05ed70b3c385110a93059a710490570b9eac2c328347eeb31a037ff0d60d.jpg",
+    "images/0851284f00aca4cdf015e94e40b4ddaf4a35fc06085a5415c0243eb16d4c19c7.jpg",
+    "images/08f61813fbdd54528d35b75360a5e5a095005a8fe059f9af81a7bd84de151b84.jpg",
+    "images/0d35f2619c377f9a0216ae294740e37c341608059f2292a6af76e26e09df1072.jpg",
+    "images/0f2333f200721ba208733eeeef4ce75c61ccd204661d74dcfa488cb142cf1b7e.jpg",
+    "images/10ad71c2f7fe16e47e7e1fd97a799f08dc95ee39cf2c9b980c3249647631b94c.jpg"
+  ],
+  "train_count": 19,
+  "test_count": 19,
+  "image_count": 10,
+  "similar_questions": {
+    "images/030d76e031414d5303768e3e08bc6d173dc7383325fcb3746d47f3f382b9870e.jpg": [
+      {
+        "original": "这张图片显示的是什么地方？",
+        "similar": "这张图片展示的是哪个地点？"
+      },
+      {
+        "original": "如何联系百怡咖啡沙面店？",
+        "similar": "怎样联系百怡咖啡沙面店？"
+      }
+    ],
+    "images/046990d64d0dbbc88af3d7673f5a4cd2ab67e91793d1bec7616121af2ba8dbdb.jpg": [
+      {
+        "original": "这张图片中显示的是什么？",
+        "similar": "这张图片中显示的是什么？"
+      }
+    ],
+    "images/04b6b70f378a01223cde43026cb27e052480e6d816e0406b5f4f997fc3a1420e.jpg": [
+      {
+        "original": "这张图片中显示的是什么地方？",
+        "similar": "这张图片里有什么？"
+      }
+    ],
+    "images/04e018707bc6de43c720fce980e22d58f484e14b1bd295452d2261f217b6305c.jpg": [
+      {
+        "original": "这张图片上显示的是什么地方？",
+        "similar": "这张图片中呈现的是哪个地点？"
+      },
+      {
+        "original": "广州艺术博物院的建筑有什么特点？",
+        "similar": "广州艺术博物院的建筑有哪些独特之处？"
+      }
+    ],
+    "images/057c05ed70b3c385110a93059a710490570b9eac2c328347eeb31a037ff0d60d.jpg": [
+      {
+        "original": "这张图片中显示的是什么？",
+        "similar": "这张图片中显示的是什么？"
+      },
+      {
+        "original": "中山纪念堂的建筑有什么特别之处？",
+        "similar": "中山纪念堂的建筑设计有何独特之处？"
+      }
+    ],
+    "images/0851284f00aca4cdf015e94e40b4ddaf4a35fc06085a5415c0243eb16d4c19c7.jpg": [
+      {
+        "original": "这张图片里显示的是什么？",
+        "similar": "这张图片中有什么？"
+      }
+    ],
+    "images/08f61813fbdd54528d35b75360a5e5a095005a8fe059f9af81a7bd84de151b84.jpg": [
+      {
+        "original": "这张图片中的地方是什么？",
+        "similar": "这张图片里的地点是什么？"
+      },
+      {
+        "original": "北京路书店有什么特别之处？",
+        "similar": "北京路书店为何独具特色？"
+      },
+      {
+        "original": "北京路书店还有其他产品吗？",
+        "similar": "北京路书店除了这些之外还有其他商品吗？"
+      }
+    ],
+    "images/0d35f2619c377f9a0216ae294740e37c341608059f2292a6af76e26e09df1072.jpg": [
+      {
+        "original": "这张图片中显示的是什么？",
+        "similar": "这张图片中显示的是什么？"
+      }
+    ],
+    "images/0f2333f200721ba208733eeeef4ce75c61ccd204661d74dcfa488cb142cf1b7e.jpg": [
+      {
+        "original": "这张图片上显示的是什么地方？",
+        "similar": "这张图片中呈现的是哪个地点？"
+      },
+      {
+        "original": "南园酒家除了粤菜还有其他菜系吗？",
+        "similar": "南园酒家除了粤菜之外，是否还有其他菜系？"
+      }
+    ],
+    "images/10ad71c2f7fe16e47e7e1fd97a799f08dc95ee39cf2c9b980c3249647631b94c.jpg": [
+      {
+        "original": "请问这张图片中显示的是什么？",
+        "similar": "这张图片里有什么？"
+      },
+      {
+        "original": "仁威庙的建筑有什么特别之处？",
+        "similar": "仁威庙的建筑结构有何特别之处？"
+      },
+      {
+        "original": "仁威庙的历史背景能再详细说说吗？",
+        "similar": "仁威庙的历史渊源能否提供更深入的介绍？"
+      },
+      {
+        "original": "仁威庙的开放时间是什么时候？",
+        "similar": "仁威庙的开放时间具体是哪一天？"
+      }
+    ]
+  }
+}
